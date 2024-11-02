@@ -73,7 +73,7 @@
     <string name="hide">Hide</string>
     <string name="remove_from_queue">Remove from queue</string>
     <string name="remove_from_playlist">Remove from playlist</string>
-    <string name="github" translatable="false">GitHub</string>
+    <string name="website" translatable="false">Website</string>
     <string name="shuffle">Shuffle</string>
     <string name="quick_picks">Quick picks</string>
     <string name="view_all">View all</string>

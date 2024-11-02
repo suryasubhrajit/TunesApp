@@ -67,16 +67,16 @@ fun About() {
 
         ListItem(
             headlineContent = {
-                Text(text = stringResource(id = R.string.github))
+                Text(text = stringResource(id = R.string.website))
             },
             leadingContent = {
                 Icon(
-                    painter = painterResource(id = R.drawable.github),
-                    contentDescription = stringResource(id = R.string.github)
+                    painter = painterResource(id = R.drawable.send),
+                    contentDescription = stringResource(id = R.string.website)
                 )
             },
             modifier = Modifier.clickable {
-                uriHandler.openUri("https://github.com/DanielSevillano/music-you")
+                uriHandler.openUri("https://tunes.shaadow.in")
             }
         )
     }
