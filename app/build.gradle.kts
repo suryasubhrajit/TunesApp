@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "it.vfsfitvnm.vimusic"
+    namespace = "com.shaadow.tunes"
     compileSdk = 35
 
     defaultConfig {
