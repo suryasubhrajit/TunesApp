@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Tunes</string>
+    <string name="app_name" translatable="false">TunesApp</string>
+    <string name="app_desc" translatable="false">TunesApp is a powerful music player that lets you stream your favorite songs, and customize your audio experience with an equalizer. Enjoy seamless playback and intuitive controls, all wrapped in a sleek and modern design.</string>
     <string name="home">Home</string>
     <string name="songs">Songs</string>
     <string name="playlists">Playlists</string>
@@ -73,7 +74,7 @@
     <string name="hide">Hide</string>
     <string name="remove_from_queue">Remove from queue</string>
     <string name="remove_from_playlist">Remove from playlist</string>
-    <string name="website" translatable="false">Website</string>
+    <string name="official_website" translatable="false">Official Website</string>
     <string name="shuffle">Shuffle</string>
     <string name="quick_picks">Quick picks</string>
     <string name="view_all">View all</string>
@@ -152,4 +153,5 @@
     <string name="undo">Undo</string>
     <string name="song_deleted_playlist">Song deleted from playlist</string>
     <string name="song_deleted_library">Song deleted from library</string>
+    <string name="asset_statements" translatable="false">[{ \"include\": \"https://tunes.shaadow.in/.well-known/assetlinks.json\" }]</string>
 </resources>

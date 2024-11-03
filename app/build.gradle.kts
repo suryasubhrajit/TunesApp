@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlin.ksp)
     alias(libs.plugins.google.gms.google.services)
+    alias(libs.plugins.google.firebase.crashlytics)
 }
 
 android {
@@ -14,8 +15,8 @@ android {
         applicationId = "com.shaadow.tunes"
         minSdk = 21
         targetSdk = 35
-        versionCode = 6
-        versionName = "0.6"
+        versionCode = 8
+        versionName = "8.0.0"
     }
 
     splits {
@@ -37,6 +38,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
 
@@ -81,6 +83,8 @@ dependencies {
     implementation(libs.room)
     implementation(libs.firebase.messaging)
     implementation(libs.firebase.inappmessaging.display)
+    implementation(libs.firebase.crashlytics)
+    implementation(libs.firebase.analytics)
     ksp(libs.room.compiler)
     implementation(projects.innertube)
     implementation(projects.kugou)

@@ -6,6 +6,7 @@ import android.content.ServiceConnection
 import android.net.Uri
 import android.os.Bundle
 import android.os.IBinder
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -53,6 +54,8 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import com.shaadow.innertube.Innertube
 import com.shaadow.innertube.models.bodies.BrowseBody
 import com.shaadow.innertube.requests.playlistPage
@@ -74,7 +77,22 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+
 class MainActivity : ComponentActivity() {
+    private fun getFCMToken() {
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+
+
+            Log.d("FCM78", token)
+        })
+    }
+
     private val serviceConnection = object : ServiceConnection {
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
             if (service is PlayerService.Binder) this@MainActivity.binder = service
@@ -87,11 +105,6 @@ class MainActivity : ComponentActivity() {
 
     private var binder by mutableStateOf<PlayerService.Binder?>(null)
     private var data by mutableStateOf<Uri?>(null)
-
-    override fun onStart() {
-        super.onStart()
-        bindService(intent<PlayerService>(), serviceConnection, BIND_AUTO_CREATE)
-    }
 
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -221,7 +234,7 @@ class MainActivity : ComponentActivity() {
                                     }
                                 }
                             ) {
-                                menuState.content()
+                                menuState.content
                             }
                         }
                     }
@@ -295,7 +308,17 @@ class MainActivity : ComponentActivity() {
                 data = null
             }
         }
+        // ATTENTION: This was auto-generated to handle app links.
+        val appLinkIntent: Intent = intent
+        val appLinkAction: String? = appLinkIntent.action
+        val appLinkData: Uri? = appLinkIntent.data
     }
+
+    override fun onStart() {
+        super.onStart()
+        bindService(intent<PlayerService>(), serviceConnection, BIND_AUTO_CREATE)
+    }
+
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)

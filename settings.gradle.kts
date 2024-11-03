@@ -18,7 +18,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Tunes"
+rootProject.name = "TunesApp"
 include(":app")
 include(":innertube")
 include(":ktor-client-brotli")

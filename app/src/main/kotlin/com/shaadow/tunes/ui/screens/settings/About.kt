@@ -18,7 +18,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
@@ -27,6 +26,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.shaadow.tunes.R
 import com.shaadow.tunes.ui.styling.Dimensions
+import androidx.compose.ui.Modifier
 
 @ExperimentalAnimationApi
 @Composable
@@ -55,7 +55,7 @@ fun About() {
         )
 
         Text(
-            text = "${stringResource(id = R.string.app_name)} v${packageInfo.versionName}",
+            text = "${stringResource(id = R.string.app_name)} (v${packageInfo.versionName})",
             style = MaterialTheme.typography.titleLarge,
             modifier = Modifier
                 .fillMaxWidth()
@@ -63,16 +63,26 @@ fun About() {
             textAlign = TextAlign.Center
         )
 
+        Text(
+            text = stringResource(id = R.string.app_desc),
+            style = MaterialTheme.typography.titleSmall,
+            modifier = Modifier
+                .padding(top = 16.dp, start = 8.dp, end = 8.dp),
+            textAlign = TextAlign.Center
+        )
+
         Spacer(modifier = Modifier.height(Dimensions.spacer + 8.dp))
 
         ListItem(
             headlineContent = {
-                Text(text = stringResource(id = R.string.website))
+                Text(text = stringResource(id = R.string.official_website))
             },
             leadingContent = {
                 Icon(
                     painter = painterResource(id = R.drawable.send),
-                    contentDescription = stringResource(id = R.string.website)
+                    contentDescription = stringResource(id = R.string.official_website),
+                    modifier = Modifier
+                        .width(16.dp)
                 )
             },
             modifier = Modifier.clickable {

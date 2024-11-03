@@ -7,9 +7,28 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:240243670494:android:8d495a688f55e3c945714f",
+        "mobilesdk_app_id": "1:240243670494:android:3f6802bfba96e1a945714f",
         "android_client_info": {
           "package_name": "com.shaadow.tunes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDygX01pG8qv9jX7JEF-A1cMRLE_3Varg8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240243670494:android:8d495a688f55e3c945714f",
+        "android_client_info": {
+          "package_name": "com.shaadow.tunes.debug"
         }
       },
       "oauth_client": [],
